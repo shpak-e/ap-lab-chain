@@ -1,0 +1,13 @@
+name: downstream
+on:
+  push:
+  workflow_run:
+    workflows: [ci]
+    types: [completed]
+permissions:
+  contents: read
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "downstream of ci"
