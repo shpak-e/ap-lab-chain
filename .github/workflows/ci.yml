@@ -1,0 +1,16 @@
+name: ci
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
+      - run: echo "building ap-lab-chain"
+      - uses: actions/upload-artifact@v3                     # radar: overdue — 2nd repo affected
+        with:
+          name: build
+          path: build/
